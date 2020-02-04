@@ -11,12 +11,12 @@
             <v-card-text>
               <v-form>
                 <v-text-field label="Login" name="login" prepend-icon="person" type="text" v-model="user_name"/>
-                <v-text-field label="Password" name="password" prepend-icon="lock" type="password" v-model="user_psd"/>
+                <v-text-field label="Password" name="password" prepend-icon="lock" type="password" v-model="user_psd" v-on:keyup.enter="onLogin" />
               </v-form>
             </v-card-text>
             <v-card-actions>
               <v-spacer />
-              <v-btn color="primary" v-on:click="onLoginClick">Login</v-btn>
+              <v-btn color="primary" v-on:click="onLogin">Login</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -42,7 +42,7 @@ export default {
     }
   },
   methods: {
-    onLoginClick: function(){
+    onLogin: function(){
         if(this.user_name === 'admin' && this.user_psd === '123456') {
             this.$emit("authenticated", true);
             this.$router.replace({ name: "index" });

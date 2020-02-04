@@ -12,7 +12,7 @@ export default new VueRouter({
         name: "login",
         component: Login
     }, {
-        path: "/",
+        path: "/index",
         name: "index",
         component: Index
     }]
