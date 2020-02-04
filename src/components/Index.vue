@@ -69,7 +69,7 @@
     </v-content>
 
     <v-footer app>
-      <span>&copy; 2019</span>
+      <span>vuetify-admin&copy; 2019</span>
     </v-footer>
   </div>
 </template>
