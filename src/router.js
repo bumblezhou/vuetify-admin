@@ -16,4 +16,4 @@ export default new VueRouter({
         name: "index",
         component: Index
     }]
-})
+});
