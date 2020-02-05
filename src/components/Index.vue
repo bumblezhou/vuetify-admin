@@ -98,7 +98,9 @@ export default {
       this.$router.replace({ name: "login" });
     },
     link_to_function: function(rel_path){
-      this.$router.push({path: "/index/" + rel_path});
+      if(this.$route.path.indexOf(rel_path) <= -1) {
+        this.$router.replace({path: "/index/" + rel_path});
+      }
     }
   }
 };
