@@ -2,20 +2,28 @@
   <div>
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense>
-        <v-list-item link>
+        <v-list-item link @click="link_to_function('functions')">
           <v-list-item-action>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
+            <v-list-item-title>Functions</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item link @click="link_to_function('users')">
           <v-list-item-action>
-            <v-icon>mdi-settings</v-icon>
+            <v-icon>mdi-account-multiple</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
+            <v-list-item-title>Users</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link @click="link_to_function('roles')">
+          <v-list-item-action>
+            <v-icon>mdi-account-details</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Roles</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -54,10 +62,7 @@
 
     <v-content>
       <v-container class="fill-height" fluid>
-        <v-row align="center" justify="center">
-          <v-col class="shrink">
-          </v-col>
-        </v-row>
+        <router-view></router-view>
       </v-container>
     </v-content>
 
@@ -70,7 +75,7 @@
 <script>
 export default {
   props: {
-    source: String
+    msg: String
   },
   data: () => ({
     drawer: null,
@@ -91,6 +96,9 @@ export default {
       this.$emit("authenticated", false);
       sessionStorage.removeItem("token");
       this.$router.replace({ name: "login" });
+    },
+    link_to_function: function(rel_path){
+      this.$router.push({path: "/index/" + rel_path});
     }
   }
 };

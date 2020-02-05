@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 
 import Login from './components/Login.vue';
 import Index from './components/Index.vue';
+import Functions from './components/Functions.vue';
+import Users from './components/Users.vue';
+import Roles from './components/Roles.vue';
 
 Vue.use(VueRouter);
 
@@ -14,6 +17,16 @@ export default new VueRouter({
     }, {
         path: "/index",
         name: "index",
-        component: Index
+        component: Index,
+        children: [{
+            path: 'functions',
+            component: Functions
+        }, {
+            path: 'users',
+            component: Users
+        }, {
+            path: 'roles',
+            component: Roles
+        }]
     }]
 });
