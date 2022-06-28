@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Login from './components/Login.vue';
-import Index from './components/Index.vue';
-import Functions from './components/Functions.vue';
-import Users from './components/Users.vue';
-import Roles from './components/Roles.vue';
+import LoginPage from './components/LoginPage.vue';
+import IndexPage from './components/IndexPage.vue';
+import FunctionsPage from './components/FunctionsPage.vue';
+import UsersPage from './components/UsersPage.vue';
+import RolesPage from './components/RolesPage.vue';
 
 Vue.use(VueRouter);
 
@@ -13,20 +13,20 @@ export default new VueRouter({
     routes: [{
         path: "/login",
         name: "login",
-        component: Login
+        component: LoginPage
     }, {
         path: "/index",
         name: "index",
-        component: Index,
+        component: IndexPage,
         children: [{
             path: 'functions',
-            component: Functions
+            component: FunctionsPage
         }, {
             path: 'users',
-            component: Users
+            component: UsersPage
         }, {
             path: 'roles',
-            component: Roles
+            component: RolesPage
         }]
     }]
 });
